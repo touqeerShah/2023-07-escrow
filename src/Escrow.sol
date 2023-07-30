@@ -122,7 +122,9 @@ contract Escrow is IEscrow, ReentrancyGuard {
         if (i_arbiterFee > 0) {
             i_tokenContract.safeTransfer(i_arbiter, i_arbiterFee);
         }
-        tokenBalance = i_tokenContract.balanceOf(address(this));
+        @audit-info call function twice to check balance increase the small amount of gase cost
+        // tokenBalance = i_tokenContract.balanceOf(address(this));
+        tokenBalance -= totalFee;
         if (tokenBalance > 0) {
             i_tokenContract.safeTransfer(i_seller, tokenBalance);
         }

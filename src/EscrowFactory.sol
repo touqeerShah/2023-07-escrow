@@ -25,6 +25,10 @@ contract EscrowFactory is IEscrowFactory {
         uint256 arbiterFee,
         bytes32 salt
     ) external returns (IEscrow) {
+        require(price > 0, "EscrowFactory: Price must be greater than zero");
+        require(address(tokenContract) != address(0), "EscrowFactory: Invalid token contract address");
+        require(seller != address(0), "EscrowFactory: Invalid seller address");
+        require(arbiter != address(0), "EscrowFactory: Invalid arbiter address");
         address computedAddress = computeEscrowAddress(
             type(Escrow).creationCode,
             address(this),

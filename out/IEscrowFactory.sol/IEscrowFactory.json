@@ -1,0 +1,766 @@
+{
+  "abi": [
+    {
+      "inputs": [],
+      "name": "EscrowFactory__AddressesDiffer",
+      "type": "error"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "escrowAddress",
+          "type": "address"
+        },
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "buyer",
+          "type": "address"
+        },
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "seller",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "internalType": "address",
+          "name": "arbiter",
+          "type": "address"
+        }
+      ],
+      "name": "EscrowCreated",
+      "type": "event"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "price",
+          "type": "uint256"
+        },
+        {
+          "internalType": "contract IERC20",
+          "name": "tokenContract",
+          "type": "address"
+        },
+        {
+          "internalType": "address",
+          "name": "seller",
+          "type": "address"
+        },
+        {
+          "internalType": "address",
+          "name": "arbiter",
+          "type": "address"
+        },
+        {
+          "internalType": "uint256",
+          "name": "arbiterFee",
+          "type": "uint256"
+        },
+        {
+          "internalType": "bytes32",
+          "name": "salt",
+          "type": "bytes32"
+        }
+      ],
+      "name": "newEscrow",
+      "outputs": [
+        {
+          "internalType": "contract IEscrow",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    }
+  ],
+  "bytecode": {
+    "object": "0x",
+    "sourceMap": "",
+    "linkReferences": {}
+  },
+  "deployedBytecode": {
+    "object": "0x",
+    "sourceMap": "",
+    "linkReferences": {}
+  },
+  "methodIdentifiers": {
+    "newEscrow(uint256,address,address,address,uint256,bytes32)": "8a960c04"
+  },
+  "rawMetadata": "{\"compiler\":{\"version\":\"0.8.18+commit.87f61d96\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[],\"name\":\"EscrowFactory__AddressesDiffer\",\"type\":\"error\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"escrowAddress\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"buyer\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"seller\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"address\",\"name\":\"arbiter\",\"type\":\"address\"}],\"name\":\"EscrowCreated\",\"type\":\"event\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"price\",\"type\":\"uint256\"},{\"internalType\":\"contract IERC20\",\"name\":\"tokenContract\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"seller\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"arbiter\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"arbiterFee\",\"type\":\"uint256\"},{\"internalType\":\"bytes32\",\"name\":\"salt\",\"type\":\"bytes32\"}],\"name\":\"newEscrow\",\"outputs\":[{\"internalType\":\"contract IEscrow\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{\"newEscrow(uint256,address,address,address,uint256,bytes32)\":{\"params\":{\"arbiter\":\"the address of the arbiter. This is the one who will resolve disputes.\",\"arbiterFee\":\"the fee the arbiter will receive for resolving disputes.\",\"price\":\"the price of the escrow. This is the agreed upon price for this service.\",\"salt\":\"the salt to use for the escrow contract. This is used to prevent replay attacks.\",\"seller\":\"the address of the seller. This is the one receiving the tokens.\",\"tokenContract\":\"the address of the token contract to use for this escrow, ie USDC, WETH, DAI, etc.\"},\"returns\":{\"_0\":\"the address of the newly deployed escrow contract.\"}}},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{\"newEscrow(uint256,address,address,address,uint256,bytes32)\":{\"notice\":\"deploy a new escrow contract. The escrow will hold all the funds. The buyer is whoever calls this function.\"}},\"version\":1}},\"settings\":{\"compilationTarget\":{\"src/IEscrowFactory.sol\":\"IEscrowFactory\"},\"evmVersion\":\"paris\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[\":@openzeppelin/contracts/=lib/openzeppelin-contracts/contracts/\",\":ds-test/=lib/forge-std/lib/ds-test/src/\",\":erc4626-tests/=lib/openzeppelin-contracts/lib/erc4626-tests/\",\":forge-std/=lib/forge-std/src/\",\":openzeppelin-contracts/=lib/openzeppelin-contracts/\",\":openzeppelin/=lib/openzeppelin-contracts/contracts/\"],\"viaIR\":true},\"sources\":{\"lib/openzeppelin-contracts/contracts/token/ERC20/IERC20.sol\":{\"keccak256\":\"0x287b55befed2961a7eabd7d7b1b2839cbca8a5b80ef8dcbb25ed3d4c2002c305\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://bd39944e8fc06be6dbe2dd1d8449b5336e23c6a7ba3e8e9ae5ae0f37f35283f5\",\"dweb:/ipfs/QmPV3FGYjVwvKSgAXKUN3r9T9GwniZz83CxBpM7vyj2G53\"]},\"src/IEscrow.sol\":{\"keccak256\":\"0xba26bf63a41f822618a30000ed925d391e3f9290166d7d4bdd47dc060537018f\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://efaf4ac55bfb2f1d51643d324552321eaca61de0edbbf3e4b15ef0c3ed9373bf\",\"dweb:/ipfs/QmWmav4ibhxpNrbwsx7JuB1WkXVDJzFeZd256VLVDZ7U3B\"]},\"src/IEscrowFactory.sol\":{\"keccak256\":\"0x9789a70723ea241dfae18f205c5ae0d0d15654c45a51a83894553a5085ea41bd\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://347607a890b65d56ada0ca53a9992a17ba4a2354ca761f9bb0a56dcfd2bb30e7\",\"dweb:/ipfs/QmP5pvJr5xHQnAiaptjY2EiBSWwcJ5gGQh9DJMvnGNXkjV\"]}},\"version\":1}",
+  "metadata": {
+    "compiler": {
+      "version": "0.8.18+commit.87f61d96"
+    },
+    "language": "Solidity",
+    "output": {
+      "abi": [
+        {
+          "inputs": [],
+          "type": "error",
+          "name": "EscrowFactory__AddressesDiffer"
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "address",
+              "name": "escrowAddress",
+              "type": "address",
+              "indexed": true
+            },
+            {
+              "internalType": "address",
+              "name": "buyer",
+              "type": "address",
+              "indexed": true
+            },
+            {
+              "internalType": "address",
+              "name": "seller",
+              "type": "address",
+              "indexed": true
+            },
+            {
+              "internalType": "address",
+              "name": "arbiter",
+              "type": "address",
+              "indexed": false
+            }
+          ],
+          "type": "event",
+          "name": "EscrowCreated",
+          "anonymous": false
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "uint256",
+              "name": "price",
+              "type": "uint256"
+            },
+            {
+              "internalType": "contract IERC20",
+              "name": "tokenContract",
+              "type": "address"
+            },
+            {
+              "internalType": "address",
+              "name": "seller",
+              "type": "address"
+            },
+            {
+              "internalType": "address",
+              "name": "arbiter",
+              "type": "address"
+            },
+            {
+              "internalType": "uint256",
+              "name": "arbiterFee",
+              "type": "uint256"
+            },
+            {
+              "internalType": "bytes32",
+              "name": "salt",
+              "type": "bytes32"
+            }
+          ],
+          "stateMutability": "nonpayable",
+          "type": "function",
+          "name": "newEscrow",
+          "outputs": [
+            {
+              "internalType": "contract IEscrow",
+              "name": "",
+              "type": "address"
+            }
+          ]
+        }
+      ],
+      "devdoc": {
+        "kind": "dev",
+        "methods": {
+          "newEscrow(uint256,address,address,address,uint256,bytes32)": {
+            "params": {
+              "arbiter": "the address of the arbiter. This is the one who will resolve disputes.",
+              "arbiterFee": "the fee the arbiter will receive for resolving disputes.",
+              "price": "the price of the escrow. This is the agreed upon price for this service.",
+              "salt": "the salt to use for the escrow contract. This is used to prevent replay attacks.",
+              "seller": "the address of the seller. This is the one receiving the tokens.",
+              "tokenContract": "the address of the token contract to use for this escrow, ie USDC, WETH, DAI, etc."
+            },
+            "returns": {
+              "_0": "the address of the newly deployed escrow contract."
+            }
+          }
+        },
+        "version": 1
+      },
+      "userdoc": {
+        "kind": "user",
+        "methods": {
+          "newEscrow(uint256,address,address,address,uint256,bytes32)": {
+            "notice": "deploy a new escrow contract. The escrow will hold all the funds. The buyer is whoever calls this function."
+          }
+        },
+        "version": 1
+      }
+    },
+    "settings": {
+      "remappings": [
+        ":@openzeppelin/contracts/=lib/openzeppelin-contracts/contracts/",
+        ":ds-test/=lib/forge-std/lib/ds-test/src/",
+        ":erc4626-tests/=lib/openzeppelin-contracts/lib/erc4626-tests/",
+        ":forge-std/=lib/forge-std/src/",
+        ":openzeppelin-contracts/=lib/openzeppelin-contracts/",
+        ":openzeppelin/=lib/openzeppelin-contracts/contracts/"
+      ],
+      "optimizer": {
+        "enabled": true,
+        "runs": 200
+      },
+      "metadata": {
+        "bytecodeHash": "ipfs"
+      },
+      "compilationTarget": {
+        "src/IEscrowFactory.sol": "IEscrowFactory"
+      },
+      "libraries": {},
+      "viaIR": true
+    },
+    "sources": {
+      "lib/openzeppelin-contracts/contracts/token/ERC20/IERC20.sol": {
+        "keccak256": "0x287b55befed2961a7eabd7d7b1b2839cbca8a5b80ef8dcbb25ed3d4c2002c305",
+        "urls": [
+          "bzz-raw://bd39944e8fc06be6dbe2dd1d8449b5336e23c6a7ba3e8e9ae5ae0f37f35283f5",
+          "dweb:/ipfs/QmPV3FGYjVwvKSgAXKUN3r9T9GwniZz83CxBpM7vyj2G53"
+        ],
+        "license": "MIT"
+      },
+      "src/IEscrow.sol": {
+        "keccak256": "0xba26bf63a41f822618a30000ed925d391e3f9290166d7d4bdd47dc060537018f",
+        "urls": [
+          "bzz-raw://efaf4ac55bfb2f1d51643d324552321eaca61de0edbbf3e4b15ef0c3ed9373bf",
+          "dweb:/ipfs/QmWmav4ibhxpNrbwsx7JuB1WkXVDJzFeZd256VLVDZ7U3B"
+        ],
+        "license": "MIT"
+      },
+      "src/IEscrowFactory.sol": {
+        "keccak256": "0x9789a70723ea241dfae18f205c5ae0d0d15654c45a51a83894553a5085ea41bd",
+        "urls": [
+          "bzz-raw://347607a890b65d56ada0ca53a9992a17ba4a2354ca761f9bb0a56dcfd2bb30e7",
+          "dweb:/ipfs/QmP5pvJr5xHQnAiaptjY2EiBSWwcJ5gGQh9DJMvnGNXkjV"
+        ],
+        "license": "MIT"
+      }
+    },
+    "version": 1
+  },
+  "ast": {
+    "absolutePath": "src/IEscrowFactory.sol",
+    "id": 31715,
+    "exportedSymbols": {
+      "IERC20": [
+        30137
+      ],
+      "IEscrow": [
+        31675
+      ],
+      "IEscrowFactory": [
+        31714
+      ]
+    },
+    "nodeType": "SourceUnit",
+    "src": "32:1302:31",
+    "nodes": [
+      {
+        "id": 31677,
+        "nodeType": "PragmaDirective",
+        "src": "32:23:31",
+        "nodes": [],
+        "literals": [
+          "solidity",
+          "0.8",
+          ".18"
+        ]
+      },
+      {
+        "id": 31679,
+        "nodeType": "ImportDirective",
+        "src": "57:38:31",
+        "nodes": [],
+        "absolutePath": "src/IEscrow.sol",
+        "file": "./IEscrow.sol",
+        "nameLocation": "-1:-1:-1",
+        "scope": 31715,
+        "sourceUnit": 31676,
+        "symbolAliases": [
+          {
+            "foreign": {
+              "id": 31678,
+              "name": "IEscrow",
+              "nodeType": "Identifier",
+              "overloadedDeclarations": [],
+              "referencedDeclaration": 31675,
+              "src": "65:7:31",
+              "typeDescriptions": {}
+            },
+            "nameLocation": "-1:-1:-1"
+          }
+        ],
+        "unitAlias": ""
+      },
+      {
+        "id": 31681,
+        "nodeType": "ImportDirective",
+        "src": "96:70:31",
+        "nodes": [],
+        "absolutePath": "lib/openzeppelin-contracts/contracts/token/ERC20/IERC20.sol",
+        "file": "@openzeppelin/contracts/token/ERC20/IERC20.sol",
+        "nameLocation": "-1:-1:-1",
+        "scope": 31715,
+        "sourceUnit": 30138,
+        "symbolAliases": [
+          {
+            "foreign": {
+              "id": 31680,
+              "name": "IERC20",
+              "nodeType": "Identifier",
+              "overloadedDeclarations": [],
+              "referencedDeclaration": 30137,
+              "src": "104:6:31",
+              "typeDescriptions": {}
+            },
+            "nameLocation": "-1:-1:-1"
+          }
+        ],
+        "unitAlias": ""
+      },
+      {
+        "id": 31714,
+        "nodeType": "ContractDefinition",
+        "src": "168:1165:31",
+        "nodes": [
+          {
+            "id": 31683,
+            "nodeType": "ErrorDefinition",
+            "src": "199:39:31",
+            "nodes": [],
+            "errorSelector": "35145c19",
+            "name": "EscrowFactory__AddressesDiffer",
+            "nameLocation": "205:30:31",
+            "parameters": {
+              "id": 31682,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "235:2:31"
+            }
+          },
+          {
+            "id": 31693,
+            "nodeType": "EventDefinition",
+            "src": "244:115:31",
+            "nodes": [],
+            "anonymous": false,
+            "eventSelector": "9d6330c40b62e9b3318783aac74e1b766472a80cc5298f1a06e5106eb7c58a8e",
+            "name": "EscrowCreated",
+            "nameLocation": "250:13:31",
+            "parameters": {
+              "id": 31692,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 31685,
+                  "indexed": true,
+                  "mutability": "mutable",
+                  "name": "escrowAddress",
+                  "nameLocation": "280:13:31",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 31693,
+                  "src": "264:29:31",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 31684,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "264:7:31",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 31687,
+                  "indexed": true,
+                  "mutability": "mutable",
+                  "name": "buyer",
+                  "nameLocation": "311:5:31",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 31693,
+                  "src": "295:21:31",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 31686,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "295:7:31",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 31689,
+                  "indexed": true,
+                  "mutability": "mutable",
+                  "name": "seller",
+                  "nameLocation": "334:6:31",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 31693,
+                  "src": "318:22:31",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 31688,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "318:7:31",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 31691,
+                  "indexed": false,
+                  "mutability": "mutable",
+                  "name": "arbiter",
+                  "nameLocation": "350:7:31",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 31693,
+                  "src": "342:15:31",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 31690,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "342:7:31",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "263:95:31"
+            }
+          },
+          {
+            "id": 31713,
+            "nodeType": "FunctionDefinition",
+            "src": "1127:204:31",
+            "nodes": [],
+            "documentation": {
+              "id": 31694,
+              "nodeType": "StructuredDocumentation",
+              "src": "365:757:31",
+              "text": "@notice deploy a new escrow contract. The escrow will hold all the funds. The buyer is whoever calls this function.\n @param price the price of the escrow. This is the agreed upon price for this service.\n @param tokenContract the address of the token contract to use for this escrow, ie USDC, WETH, DAI, etc.\n @param seller the address of the seller. This is the one receiving the tokens.\n @param arbiter the address of the arbiter. This is the one who will resolve disputes.\n @param arbiterFee the fee the arbiter will receive for resolving disputes.\n @param salt the salt to use for the escrow contract. This is used to prevent replay attacks.\n @return the address of the newly deployed escrow contract."
+            },
+            "functionSelector": "8a960c04",
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "newEscrow",
+            "nameLocation": "1136:9:31",
+            "parameters": {
+              "id": 31708,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 31696,
+                  "mutability": "mutable",
+                  "name": "price",
+                  "nameLocation": "1163:5:31",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 31713,
+                  "src": "1155:13:31",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 31695,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1155:7:31",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 31699,
+                  "mutability": "mutable",
+                  "name": "tokenContract",
+                  "nameLocation": "1185:13:31",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 31713,
+                  "src": "1178:20:31",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_contract$_IERC20_$30137",
+                    "typeString": "contract IERC20"
+                  },
+                  "typeName": {
+                    "id": 31698,
+                    "nodeType": "UserDefinedTypeName",
+                    "pathNode": {
+                      "id": 31697,
+                      "name": "IERC20",
+                      "nameLocations": [
+                        "1178:6:31"
+                      ],
+                      "nodeType": "IdentifierPath",
+                      "referencedDeclaration": 30137,
+                      "src": "1178:6:31"
+                    },
+                    "referencedDeclaration": 30137,
+                    "src": "1178:6:31",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_contract$_IERC20_$30137",
+                      "typeString": "contract IERC20"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 31701,
+                  "mutability": "mutable",
+                  "name": "seller",
+                  "nameLocation": "1216:6:31",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 31713,
+                  "src": "1208:14:31",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 31700,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1208:7:31",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 31703,
+                  "mutability": "mutable",
+                  "name": "arbiter",
+                  "nameLocation": "1240:7:31",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 31713,
+                  "src": "1232:15:31",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 31702,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1232:7:31",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 31705,
+                  "mutability": "mutable",
+                  "name": "arbiterFee",
+                  "nameLocation": "1265:10:31",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 31713,
+                  "src": "1257:18:31",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 31704,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1257:7:31",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 31707,
+                  "mutability": "mutable",
+                  "name": "salt",
+                  "nameLocation": "1293:4:31",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 31713,
+                  "src": "1285:12:31",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes32",
+                    "typeString": "bytes32"
+                  },
+                  "typeName": {
+                    "id": 31706,
+                    "name": "bytes32",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1285:7:31",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes32",
+                      "typeString": "bytes32"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1145:158:31"
+            },
+            "returnParameters": {
+              "id": 31712,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 31711,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nameLocation": "-1:-1:-1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 31713,
+                  "src": "1322:7:31",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_contract$_IEscrow_$31675",
+                    "typeString": "contract IEscrow"
+                  },
+                  "typeName": {
+                    "id": 31710,
+                    "nodeType": "UserDefinedTypeName",
+                    "pathNode": {
+                      "id": 31709,
+                      "name": "IEscrow",
+                      "nameLocations": [
+                        "1322:7:31"
+                      ],
+                      "nodeType": "IdentifierPath",
+                      "referencedDeclaration": 31675,
+                      "src": "1322:7:31"
+                    },
+                    "referencedDeclaration": 31675,
+                    "src": "1322:7:31",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_contract$_IEscrow_$31675",
+                      "typeString": "contract IEscrow"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1321:9:31"
+            },
+            "scope": 31714,
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "external"
+          }
+        ],
+        "abstract": false,
+        "baseContracts": [],
+        "canonicalName": "IEscrowFactory",
+        "contractDependencies": [],
+        "contractKind": "interface",
+        "fullyImplemented": false,
+        "linearizedBaseContracts": [
+          31714
+        ],
+        "name": "IEscrowFactory",
+        "nameLocation": "178:14:31",
+        "scope": 31715,
+        "usedErrors": [
+          31683
+        ]
+      }
+    ],
+    "license": "MIT"
+  },
+  "id": 31
+}
